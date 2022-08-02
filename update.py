@@ -7,6 +7,8 @@ import requests
 from dotenv import load_dotenv
 load_dotenv()
 
+print(" ----> Running Auto Updater Script")
+
 scriptPath = os.path.join(os.getcwd(), 'bin', 'compile')
 latestFFVer = requests.get(
     "https://product-details.mozilla.org/1.0/firefox_versions.json").json()['LATEST_FIREFOX_VERSION']
@@ -25,3 +27,5 @@ data[53] = '  "' + '" | "'.join(supportedHeroku) + '")\n'
 data[81] = f'    error "Must be on a supported Heroku version: {", ".join(supportedHeroku)}"\n'
 with open(scriptPath, 'w') as f:
     f.writelines(data)
+
+print(" ----> Finished Auto Updater Script")
