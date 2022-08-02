@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir>
-# Last updated: August 02, 2022 01:39 PM UTC
+# Last updated: August 02, 2022 08:14 PM UTC
 echo -en '\n'
 
 # Fail fast
@@ -79,7 +79,7 @@ case "$STACK" in
     "
     ;;	
   *)	
-    error "You are not on a supported Heroku version. Check the list above for all supported versions"	
+    error "Must be on a supported Heroku version: heroku-22, heroku-20, heroku-18, heroku-16"
 esac
 
 if [ ! -f $CACHE_DIR/PURGED_CACHE_V1 ]; then
