@@ -1,0 +1,30 @@
+name: Auto Update Compile Script
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "bin/**"
+  schedule:
+    - cron: "0 0 * * 0"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Dependancies And Run Build
+        run: |
+          pip3 install -r requirements.txt
+          python3 ./update.py
+        env:
+          GH_URL: ${{ secrets.GH_URL }}
+      - name: Push Results
+        run: |
+          git add --force ./bin/**
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          git commit -m "Weekly Auto Update via GitHub Actions"
+          git push -u origin main
