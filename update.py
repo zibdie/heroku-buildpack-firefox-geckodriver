@@ -31,7 +31,7 @@ with open(scriptPath, 'w') as f:
 
 with open(readmePath) as f:
     readmeUpdate = f.readlines()
-readmeUpdate[0] = f"**LAST UPDATED:** {datetime.datetime.strftime(datetime.datetime.now(), '%B %d, %Y %I:%M %p %z')}{time.tzname[time.daylight]}\n"
+readmeUpdate.insert(0, f"**LAST UPDATED:** {datetime.datetime.strftime(datetime.datetime.now(), '%B %d, %Y %I:%M %p %z')}{time.tzname[time.daylight]}\n")
 with open(readmePath, 'w') as f:
     f.writelines(readmeUpdate)
 
