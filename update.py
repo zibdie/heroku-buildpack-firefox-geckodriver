@@ -10,6 +10,7 @@ load_dotenv()
 print(" ----> Running Auto Updater Script")
 
 scriptPath = os.path.join(os.getcwd(), 'bin', 'compile')
+readmePath = os.path.join(os.getcwd(), 'README.md')
 latestFFVer = requests.get(
     "https://product-details.mozilla.org/1.0/firefox_versions.json").json()['LATEST_FIREFOX_VERSION']
 latestgeckoVer = requests.get(
@@ -27,5 +28,11 @@ data[53] = '  "' + '" | "'.join(supportedHeroku) + '")\n'
 data[81] = f'    error "Must be on a supported Heroku version: {", ".join(supportedHeroku)}"\n'
 with open(scriptPath, 'w') as f:
     f.writelines(data)
+
+with open(readmePath) as f:
+    readmeUpdate = f.readlines()
+readmeUpdate[0] = f"**LAST UPDATED:** {datetime.datetime.strftime(datetime.datetime.now(), '%B %d, %Y %I:%M %p %z')}{time.tzname[time.daylight]}\n"
+with open(readmePath, 'w') as f:
+    f.writelines(readmeUpdate)
 
 print(" ----> Finished Auto Updater Script")
