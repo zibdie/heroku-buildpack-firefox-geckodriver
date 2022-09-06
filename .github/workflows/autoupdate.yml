@@ -23,6 +23,7 @@ jobs:
           GH_URL: ${{ secrets.GH_URL }}
       - name: Push Results
         run: |
+          git pull --all
           git add --force ./bin/**
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
