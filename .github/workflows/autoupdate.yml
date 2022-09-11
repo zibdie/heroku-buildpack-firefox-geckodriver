@@ -18,12 +18,14 @@ jobs:
       - name: Install Dependancies And Run Build
         run: |
           pip3 install -r requirements.txt
-          python3 ./update.py
         env:
           GH_URL: ${{ secrets.GH_URL }}
       - name: Push Results
         run: |
           git pull --all
+          git stash
+          git stash clear
+          python3 update.py
           git add --force .
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
