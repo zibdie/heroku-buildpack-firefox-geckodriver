@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir>
-# Last updated: August 20, 2023 05:01 AM UTC
+# Last updated: August 27, 2023 05:01 AM UTC
 echo -en '\n'
 
 # Fail fast
