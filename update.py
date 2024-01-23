@@ -7,6 +7,7 @@ import requests
 from dotenv import load_dotenv
 load_dotenv()
 
+
 print(" ----> Running Auto Updater Script")
 
 scriptPath = os.path.join(os.getcwd(), 'bin', 'compile')
@@ -16,7 +17,7 @@ latestFFVer = requests.get(
 latestgeckoVer = requests.get(
     "https://api.github.com/repos/mozilla/geckodriver/releases").json()[0]['name']
 supportedHeroku = list(filter(lambda x: x.startswith("heroku"), list(map(
-    lambda x: x['stack']['name'].lower(), requests.get(os.environ.get("GH_URL")).json()['data']))))
+    lambda x: x['stack']['name'].lower(), requests.get(os.environ.get("REPOSITORY_URL")).json()['data']))))
 
 
 with open(scriptPath) as f:
