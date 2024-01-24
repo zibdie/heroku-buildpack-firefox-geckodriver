@@ -27,7 +27,7 @@ jobs:
       - name: Push Results
         working-directory: ${{ github.workspace }}
         env:
-          REPOSITORY_URL: "https://github.com/${{ github.repository }}"
+          REPOSITORY_URL: "https://raw.githubusercontent.com/zibdie/heroku-info-api/main/api/heroku-stack-api.json"
         run: |
           git pull --all
           git stash
