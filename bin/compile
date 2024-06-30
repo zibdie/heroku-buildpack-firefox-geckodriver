@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir>
-# Last updated: June 23, 2024 05:02 AM UTC
+# Last updated: June 30, 2024 05:02 AM UTC
 echo -en '\n'
 
 # Fail fast
@@ -36,7 +36,7 @@ function indent() {
 # Config
 # Hardcoded available stable versions
 # Use it to manually update the version as per https://firefox-source-docs.mozilla.org/testing/geckodriver/Support.html
-VERSION_FIREFOX=127.0.1
+VERSION_FIREFOX=127.0.2
 VERSION_GECKODRIVER=0.34.0
 LANG=en-US
 PLATFORM=linux64
@@ -51,7 +51,7 @@ BUILDPACK_GECKODRIVER_PACKAGE="https://github.com/mozilla/geckodriver/releases/d
 
 # Install correct dependencies according to $STACK	
 case "$STACK" in	
-  "heroku-22" | "heroku-20" | "heroku-18" | "heroku-16")
+  "heroku-24" | "heroku-22" | "heroku-20" | "heroku-18" | "heroku-16")
     PACKAGES="	
       libappindicator1	
       libasound2	
@@ -79,7 +79,7 @@ case "$STACK" in
     "
     ;;	
   *)	
-    error "Must be on a supported Heroku version: heroku-22, heroku-20, heroku-18, heroku-16"
+    error "Must be on a supported Heroku version: heroku-24, heroku-22, heroku-20, heroku-18, heroku-16"
 esac
 
 if [ ! -f $CACHE_DIR/PURGED_CACHE_V1 ]; then
