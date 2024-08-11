@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir>
-# Last updated: August 04, 2024 05:02 AM UTC
+# Last updated: August 11, 2024 05:02 AM UTC
 echo -en '\n'
 
 # Fail fast
@@ -36,8 +36,8 @@ function indent() {
 # Config
 # Hardcoded available stable versions
 # Use it to manually update the version as per https://firefox-source-docs.mozilla.org/testing/geckodriver/Support.html
-VERSION_FIREFOX=128.0.3
-VERSION_GECKODRIVER=0.34.0
+VERSION_FIREFOX=129.0
+VERSION_GECKODRIVER=0.35.0
 LANG=en-US
 PLATFORM=linux64
 
