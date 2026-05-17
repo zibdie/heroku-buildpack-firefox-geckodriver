@@ -1,4 +1,4 @@
-**LAST UPDATED:** May 10, 2026 06:00 AM UTC
+**LAST UPDATED:** May 17, 2026 06:04 AM UTC
 # heroku-buildpack-firefox-geckodriver
 
 This buildpack downloads and set's up Mozilla Firefox & Mozilla Geckodriver for your buildpack. You can run Selenium along with your favorite languages, such as Python, Ruby, and Node, to utilize Firefox.
